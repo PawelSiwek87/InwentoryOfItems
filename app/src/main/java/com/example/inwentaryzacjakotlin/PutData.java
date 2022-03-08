@@ -81,7 +81,6 @@ public class PutData extends Thread {
         this.result_data = result_data;
     }
 
-
     public String getData() {
         return result_data;
     }
