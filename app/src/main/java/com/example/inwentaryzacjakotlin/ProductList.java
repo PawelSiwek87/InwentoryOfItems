@@ -10,21 +10,15 @@ public class ProductList {
 
     public ProductList(ArrayList<Product> products) {
         this.products = products;
-        updateStringArray();
     }
 
-    private void updateStringArray() {
-        productsStringArray = new ArrayList<>();
-        for (Product b : products) productsStringArray.add(b.getProductName());
-        //(need upgrade) productsStringArray.sort(String::compareToIgnoreCase);
-        productsStringArray.add(0, "Wszystkie");
-    }
 
-    public Product getBuildingByName(String buildingName) {
+
+    public Product getProductByName(String productName) {
         Product match = null;
 
         for (int i = 0; i < products.size() && match == null; i++)
-            if (products.get(i).getProductName().equals(buildingName))
+            if (products.get(i).getProductName().equals(productName))
                 match = products.get(i);
 
         return match;
@@ -51,7 +45,8 @@ public class ProductList {
         int nextId = 0;
 
         for (Product b : products) {
-            if (b.getBarcode() > nextId) nextId = b.getBarcode();
+            if (b.getBarcode() > nextId)
+                nextId = b.getBarcode();
         }
         return nextId + 1;
     }
